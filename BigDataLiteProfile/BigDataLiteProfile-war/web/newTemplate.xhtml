@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top"><img src="./resources/images/disque.png"></img></ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                     <h:form>
+                    <p:growl autoUpdate="true"></p:growl>
+                    <p:panelMenu style="width: 150px;">
+                        <p:submenu label="Editer Profil">
+                            <p:menuitem value="ajouter photo" url="ajouter_photo.xhtml"></p:menuitem>
+                            <p:menuitem value="supprimer photo" url="supprimer_photo.xhtml"></p:menuitem>
+                            <p:menuitem value="ajouter chanson" url="ajouter_chanson.xhtml"></p:menuitem>
+                            <p:menuitem value="supprimer chanson" url="supprimer_chanson.xhtml"></p:menuitem>
+                            <p:menuitem value="ajouter chanteur" url="ajouter_chanteur.xhtml"></p:menuitem>
+                            <p:menuitem value="supprimer chanteur" url="supprimer_chanteur.xhtml"></p:menuitem>
+                            <p:menuitem value="ajouter groupe" url="ajouter_groupe.xhtml"></p:menuitem>
+                            <p:menuitem value="supprimer groupe" url="supprimer_groupe.xhtml"></p:menuitem>
+                                                
+                        </p:submenu>
+                        <p:submenu label="Admin">
+                            <p:menuitem value="liste utilisateurs" url="listeUser.xhtml"></p:menuitem>
+                            <p:menuitem value="liste groupes" url="liste_groupe.xhtml"></p:menuitem>
+                        </p:submenu>
+                        <p:submenu label="Connexion">
+                            <p:menuitem value="Se déconnecter" url="authentification.xhtml"></p:menuitem>
+                            <p:menuitem value="Se connecter" url="authentification.xhtml"></p:menuitem>
+                        </p:submenu>
+                    </p:panelMenu>
+                    
+                </h:form>
+                </ui:insert>
+            </div>
+            <div>
+                <div id="right">
+                    <ui:insert name="right"></ui:insert>
+                </div>
+                <div id="content" class="right_content">
+                    <ui:insert name="content">Content</ui:insert>
+                </div>
+            </div>
+        </div>
+<!--        <div id="bottom">
+            <ui:insert name="bottom"></ui:insert>
+        </div>-->
+
+    </h:body>
+
+</html>

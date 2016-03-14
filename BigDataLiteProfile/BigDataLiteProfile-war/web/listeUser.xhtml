@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./newTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./newTemplate.xhtml">
+
+<!--            <ui:define name="top">
+                top
+            </ui:define>
+
+            <ui:define name="left">
+                left
+            </ui:define>
+
+            <ui:define name="right">
+                right
+            </ui:define>-->
+
+            <ui:define name="content">
+                <f:view>
+
+
+                    <h:form>
+                            <h1><h:outputText value="List"/></h1>
+                            <p:dataTable value="#{userMBean.users}" var="item">
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Id User"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.id}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Nom"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nom}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Prenom"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.prenom}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Email"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.email}"/>
+                                </p:column>
+                                
+                                <p:column   >
+                                    <f:facet name="header">
+                                        <h:outputText value="Profil User"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.profil.id}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value=""/>
+                                    </f:facet>
+                                    <h:commandButton value="supprimer user"
+                                                     action="#{userMBean.deleteUser(item.profil.d)}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                </f:view>
+
+
+            </ui:define>
+
+<!--            <ui:define name="bottom">
+                
+            </ui:define>-->
+
+        </ui:composition>
+
+    </body>
+</html>
