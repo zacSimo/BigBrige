@@ -27,10 +27,10 @@ public class Utilisateur implements Serializable {
     private String nom;
     private String prenom;
     private String email;
-    //private Integer profil_id;
+    private Integer profil_id;
     
-    @OneToOne
-    private Profil profil;
+//    @OneToOne
+//    private Profil profil;
 
     public Integer getIdUser() {
         return idUser;
@@ -40,35 +40,35 @@ public class Utilisateur implements Serializable {
         this.idUser = idUser;
     }
 
-//    public Integer getProfil_id() {
-//        return profil_id;
-//    }
-//
-//    public void setProfil_id(Integer profil_id) {
-//        this.profil_id = profil_id;
-//    }
+    public Integer getProfil_id() {
+        return profil_id;
+    }
+
+    public void setProfil_id(Integer profil_id) {
+        this.profil_id = profil_id;
+    }
     
     
   
     
 
-    public Utilisateur(String nom, String prenom, String email, Profil profil) {
+    public Utilisateur(String nom, String prenom, String email, Integer profil) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.profil = profil;
+       this.profil_id = profil;
     }
 
     public Utilisateur() {
     }
 
-    public Profil getProfil() {
-        return profil;
-    }
-
-    public void setProfil(Profil profil) {
-        this.profil = profil;
-    }
+//    public Profil getProfil() {
+//        return profil;
+//    }
+//
+//    public void setProfil(Profil profil) {
+//        this.profil = profil;
+//    }
 
     
     public String getNom() {

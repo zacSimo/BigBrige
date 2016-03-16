@@ -27,9 +27,9 @@
 
 
                     <h:form>
-                            <h1><h:outputText value="List"/></h1>
+                            <h1><h:outputText value="Liste Utilisateurs"/></h1>
                             <p:dataTable value="#{userMBean.users}" var="item">
-                                <p:column>
+                                <p:column >
                                     <f:facet name="header">
                                         <h:outputText value="Id User"/>
                                     </f:facet>
@@ -58,14 +58,14 @@
                                     <f:facet name="header">
                                         <h:outputText value="Profil User"/>
                                     </f:facet>
-                                    <h:outputText value="#{item.profil.id}"/>
+                                    <h:outputText value="#{item.profil_id}"/>
                                 </p:column>
                                 <p:column>
                                     <f:facet name="header">
                                         <h:outputText value=""/>
                                     </f:facet>
                                     <h:commandButton value="supprimer user"
-                                                     action="#{userMBean.deleteUser(item.profil.d)}"/>
+                                                     action="#{userMBean.deleteUser(item.id)}"/>
                                 </p:column>
                             </p:dataTable>
                         </h:form>

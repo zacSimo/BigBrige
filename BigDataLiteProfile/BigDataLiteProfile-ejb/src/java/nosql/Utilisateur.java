@@ -36,7 +36,7 @@ public class Utilisateur {
             u.dropTableUtilisateur();
             u.createUtilisateur();
             for(int i = 1;i<=5;i++){
-                u.insertAUtilisateurRow(i, "nom_"+i, "prenom_"+i, "nom_"+i+".prenom_"+i+"@yahoo.fr", i);
+                u.insertAUtilisateurRow(i, "nom_"+i, "prenom_"+i, "nom_"+i+"@yahoo.fr", i);
             }
             
             

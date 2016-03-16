@@ -44,8 +44,8 @@ public class UserMBean {
     @EJB
     private GestionUserProfil gup;
     
-    public void insertUser(String nom, String prenom, String email, Profil profil){
-        gup.insertUser(new Utilisateur(nom,prenom,email, profil));
+    public void insertUser(String nom, String prenom, String email, Integer profil_id){
+        gup.insertUser(new Utilisateur(nom,prenom,email, profil_id));
     }
 
     public String getNomUser() {

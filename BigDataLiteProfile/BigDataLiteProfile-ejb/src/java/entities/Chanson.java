@@ -24,21 +24,35 @@ public class Chanson implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String titreChansson;
+    private String nomAlbum;
     private String genre;
     //duree chanson en milliseconde
     private Long duree;
     
-    @ManyToOne(fetch=FetchType.LAZY)
-    private Chanteur chanteur;
+//    @ManyToOne(fetch=FetchType.LAZY)
+//    private Chanteur chanteur;
+    private Integer id_chanteur;
+
+    public Integer getId_chanteur() {
+        return id_chanteur;
+    }
+
+    public void setId_chanteur(Integer id_chanteur) {
+        this.id_chanteur = id_chanteur;
+    }
+
+    public Chanson(String titreChansson, String nomAlbum, String genre, Long duree, Integer id_chanteur) {
+        this.titreChansson = titreChansson;
+        this.nomAlbum = nomAlbum;
+        this.genre = genre;
+        this.duree = duree;
+        this.id_chanteur = id_chanteur;
+    }
 
     public Chanson() {
     }
 
-    public Chanson(String titreChansson, String genre, Long duree) {
-        this.titreChansson = titreChansson;
-        this.genre = genre;
-        this.duree = duree;
-    }
+ 
 
     
     public String getGenre() {
@@ -57,13 +71,13 @@ public class Chanson implements Serializable{
         this.duree = duree;
     }
 
-    public Chanteur getChanteur() {
-        return chanteur;
-    }
-
-    public void setChanteur(Chanteur chanteur) {
-        this.chanteur = chanteur;
-    }
+//    public Chanteur getChanteur() {
+//        return chanteur;
+//    }
+//
+//    public void setChanteur(Chanteur chanteur) {
+//        this.chanteur = chanteur;
+//    }
 
     
     public String getTitreChansson() {
@@ -74,8 +88,13 @@ public class Chanson implements Serializable{
         this.titreChansson = titreChansson;
     }
 
+    public String getNomAlbum() {
+        return nomAlbum;
+    }
 
-    
+    public void setNomAlbum(String nomAlbum) {
+        this.nomAlbum = nomAlbum;
+    }
     
     public Integer getId() {
         return id;

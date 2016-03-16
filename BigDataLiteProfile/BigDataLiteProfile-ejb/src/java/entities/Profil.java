@@ -29,9 +29,10 @@ public class Profil implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String photo;
+    private Integer idUser;
     
-    @OneToOne(mappedBy = "profil")
-    private Utilisateur user;
+//    @OneToOne(mappedBy = "profil")
+//    private Utilisateur user;
     
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     private List<Groupe> listeGroupe;
@@ -80,13 +81,13 @@ public class Profil implements Serializable {
         this.listChanteur = listChanteur;
     }
 
-    public Utilisateur getUser() {
-        return user;
-    }
-
-    public void setUser(Utilisateur user) {
-        this.user = user;
-    }
+//    public Utilisateur getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(Utilisateur user) {
+//        this.user = user;
+//    }
     
     
     public Integer getId() {

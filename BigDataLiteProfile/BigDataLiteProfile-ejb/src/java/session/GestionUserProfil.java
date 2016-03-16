@@ -124,8 +124,8 @@ public class GestionUserProfil {
 //         profil.setId(i);
          profil.setPhoto("poto_profil_1");
          em.persist(profil);
-         Utilisateur u = new Utilisateur("nomuser_"+i, "prenomuser_"+i, "nomuser_"+i+"."+"prenomuser_"+i+"@yahoo.fr", profil);
-         u.setProfil(profil);
+         Utilisateur u = new Utilisateur("nomuser_"+i, "prenomuser_"+i, "nomuser_"+i+"."+"prenomuser_"+i+"@yahoo.fr", profil.getId());
+         //u.setProfil(profil);
          em.persist(u);
         
          Chanteur chanteur = new Chanteur();
@@ -134,12 +134,12 @@ public class GestionUserProfil {
          em.persist(chanteur);
          
          for(int j=1;j<=10;j++){
-             Chanson ch = new Chanson();
-             ch.setChanteur(chanteur);
-             ch.setDuree(Long.MIN_VALUE);
-             ch.setGenre("POP"+j);
-             ch.setTitreChansson("titre_"+j);
-             em.persist(ch);
+//             Chanson ch = new Chanson();
+//             ch.setChanteur(chanteur);
+//             ch.setDuree(Long.MIN_VALUE);
+//             ch.setGenre("POP"+j);
+//             ch.setTitreChansson("titre_"+j);
+//             em.persist(ch);
          }
          
      }
