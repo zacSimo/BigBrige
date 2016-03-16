@@ -27,9 +27,28 @@ public class Utilisateur implements Serializable {
     private String nom;
     private String prenom;
     private String email;
+    //private Integer profil_id;
     
-    @Embedded
+    @OneToOne
     private Profil profil;
+
+    public Integer getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
+    }
+
+//    public Integer getProfil_id() {
+//        return profil_id;
+//    }
+//
+//    public void setProfil_id(Integer profil_id) {
+//        this.profil_id = profil_id;
+//    }
+    
+    
   
     
 

@@ -793,9 +793,7 @@ exists or setup the property manually. For example like this:
     </target>
     <target depends="compile,-library-inclusion-in-archive-weblogic,-library-inclusion-in-archive-by-user" name="library-inclusion-in-archive"/>
     <target if="is.jars.in.ejbjar" name="-library-inclusion-in-archive-by-user">
-        <copyfiles files="${libs.MyNoSqlLibrary.classpath}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.ojdbc6.jar}" todir="${build.classes.dir}"/>
-        <copyfiles files="${file.reference.oraloader.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.commons-logging-1.1.3.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.hive-common.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.hive-jdbc.jar}" todir="${build.classes.dir}"/>
@@ -807,11 +805,10 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.slf4j-api-1.7.5.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.hive-service.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.cdi-api.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.kvclient.jar}" todir="${build.classes.dir}"/>
     </target>
     <target if="is.server.weblogic" name="-library-inclusion-in-archive-weblogic">
-        <basename file="${libs.MyNoSqlLibrary.classpath}" property="manifest.libs.MyNoSqlLibrary.classpath"/>
         <basename file="${file.reference.ojdbc6.jar}" property="manifest.file.reference.ojdbc6.jar"/>
-        <basename file="${file.reference.oraloader.jar}" property="manifest.file.reference.oraloader.jar"/>
         <basename file="${file.reference.commons-logging-1.1.3.jar}" property="manifest.file.reference.commons-logging-1.1.3.jar"/>
         <basename file="${file.reference.hive-common.jar}" property="manifest.file.reference.hive-common.jar"/>
         <basename file="${file.reference.hive-jdbc.jar}" property="manifest.file.reference.hive-jdbc.jar"/>
@@ -823,28 +820,26 @@ exists or setup the property manually. For example like this:
         <basename file="${file.reference.slf4j-api-1.7.5.jar}" property="manifest.file.reference.slf4j-api-1.7.5.jar"/>
         <basename file="${file.reference.hive-service.jar}" property="manifest.file.reference.hive-service.jar"/>
         <basename file="${file.reference.cdi-api.jar}" property="manifest.file.reference.cdi-api.jar"/>
+        <basename file="${file.reference.kvclient.jar}" property="manifest.file.reference.kvclient.jar"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 jar-7 jar-8 jar-9 jar-10 jar-11 jar-12 jar-13 jar-14 "/>
-            <attribute name="jar-1-Extension-Name" value="${manifest.libs.MyNoSqlLibrary.classpath}"/>
-            <attribute name="jar-2-Extension-Name" value="${manifest.file.reference.ojdbc6.jar}"/>
-            <attribute name="jar-3-Extension-Name" value="${manifest.file.reference.oraloader.jar}"/>
-            <attribute name="jar-4-Extension-Name" value="${manifest.file.reference.commons-logging-1.1.3.jar}"/>
-            <attribute name="jar-5-Extension-Name" value="${manifest.file.reference.hive-common.jar}"/>
-            <attribute name="jar-6-Extension-Name" value="${manifest.file.reference.hive-jdbc.jar}"/>
-            <attribute name="jar-7-Extension-Name" value="${manifest.file.reference.hive-metastore.jar}"/>
-            <attribute name="jar-8-Extension-Name" value="${manifest.file.reference.httpclient-4.2.5.jar}"/>
-            <attribute name="jar-9-Extension-Name" value="${manifest.file.reference.httpcore-4.2.5.jar}"/>
-            <attribute name="jar-10-Extension-Name" value="${manifest.file.reference.libthrift-0.9.2.jar}"/>
-            <attribute name="jar-11-Extension-Name" value="${manifest.file.reference.hadoop-common.jar}"/>
-            <attribute name="jar-12-Extension-Name" value="${manifest.file.reference.slf4j-api-1.7.5.jar}"/>
-            <attribute name="jar-13-Extension-Name" value="${manifest.file.reference.hive-service.jar}"/>
-            <attribute name="jar-14-Extension-Name" value="${manifest.file.reference.cdi-api.jar}"/>
+            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 jar-7 jar-8 jar-9 jar-10 jar-11 jar-12 jar-13 "/>
+            <attribute name="jar-1-Extension-Name" value="${manifest.file.reference.ojdbc6.jar}"/>
+            <attribute name="jar-2-Extension-Name" value="${manifest.file.reference.commons-logging-1.1.3.jar}"/>
+            <attribute name="jar-3-Extension-Name" value="${manifest.file.reference.hive-common.jar}"/>
+            <attribute name="jar-4-Extension-Name" value="${manifest.file.reference.hive-jdbc.jar}"/>
+            <attribute name="jar-5-Extension-Name" value="${manifest.file.reference.hive-metastore.jar}"/>
+            <attribute name="jar-6-Extension-Name" value="${manifest.file.reference.httpclient-4.2.5.jar}"/>
+            <attribute name="jar-7-Extension-Name" value="${manifest.file.reference.httpcore-4.2.5.jar}"/>
+            <attribute name="jar-8-Extension-Name" value="${manifest.file.reference.libthrift-0.9.2.jar}"/>
+            <attribute name="jar-9-Extension-Name" value="${manifest.file.reference.hadoop-common.jar}"/>
+            <attribute name="jar-10-Extension-Name" value="${manifest.file.reference.slf4j-api-1.7.5.jar}"/>
+            <attribute name="jar-11-Extension-Name" value="${manifest.file.reference.hive-service.jar}"/>
+            <attribute name="jar-12-Extension-Name" value="${manifest.file.reference.cdi-api.jar}"/>
+            <attribute name="jar-13-Extension-Name" value="${manifest.file.reference.kvclient.jar}"/>
         </manifest>
     </target>
     <target depends="compile" name="library-inclusion-in-manifest">
-        <copyfiles files="${libs.MyNoSqlLibrary.classpath}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.ojdbc6.jar}" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.oraloader.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.commons-logging-1.1.3.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.hive-common.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.hive-jdbc.jar}" todir="${dist.ear.dir}/lib"/>
@@ -856,6 +851,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.slf4j-api-1.7.5.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.hive-service.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.cdi-api.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.kvclient.jar}" todir="${dist.ear.dir}/lib"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target name="-copy-meta-inf">

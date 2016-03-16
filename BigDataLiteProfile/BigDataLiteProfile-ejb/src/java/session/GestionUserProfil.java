@@ -98,12 +98,12 @@ public class GestionUserProfil {
     }
 
     public List<Profil> getListProfils() {
-        Query q = em.createQuery("select p from Profil p;");
+        Query q = em.createQuery("select p from Profil p");
         return q.getResultList();
     }
 
     public List<Groupe> getListGroupe() {
-        Query q = em.createQuery("select g from Groupe p;");
+        Query q = em.createQuery("select g from Groupe p");
         return q.getResultList();
     }
 

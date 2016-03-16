@@ -6,8 +6,7 @@
 package nosql;
 
 import oracle.kv.KVStore;
-import java.util.List;
-import java.util.Iterator;
+
 import oracle.kv.KVStoreConfig;
 import oracle.kv.KVStoreFactory;
 import oracle.kv.FaultException;
@@ -15,17 +14,11 @@ import oracle.kv.StatementResult;
 import oracle.kv.table.TableAPI;
 import oracle.kv.table.Table;
 import oracle.kv.table.Row;
-import oracle.kv.table.PrimaryKey;
+
 
 import oracle.kv.ConsistencyException;
 import oracle.kv.RequestTimeoutException;
-import java.lang.Integer;
-import oracle.kv.table.TableIterator;
-import oracle.kv.table.FieldRange;
-import oracle.kv.table.MultiRowOptions;
-import java.util.Arrays;
-import oracle.kv.table.Index; 
-import oracle.kv.table.IndexKey; 
+
 
 /**
  *
